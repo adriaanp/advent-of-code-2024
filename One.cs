@@ -30,6 +30,18 @@ public class Office
 
       return total;
     }
+
+    public int CalculateTheSimilarityScore()
+    {
+        int total = 0;
+        foreach(var location in _groupOneList)
+        {
+            var times = _groupTwoList.Count(x => x.Id == location.Id);
+            total += location.Id * times;
+        }
+
+        return total;
+    }
 }
 
 public class NotesFinder
