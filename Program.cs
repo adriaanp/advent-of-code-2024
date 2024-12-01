@@ -1,12 +1,10 @@
 ﻿
 void DayOne()
 {
-    var office = new Office();
-    var (listOne, listTwo) = NotesFinder.FindNotes("locations-input.txt");
-    office.FoundLists(listOne, listTwo);
+    var (leftList, rightList) = NotesFinder.FindNotes("locations-input.txt");
 
-    Console.WriteLine($"Total Distance: {office.FindTotalDistance()}");
-    Console.WriteLine($"Similarity Score: {office.CalculateTheSimilarityScore()}");
+    Console.WriteLine($"Total Distance: {leftList.TotalDistanceFrom(rightList)}");
+    Console.WriteLine($"Similarity Score: {leftList.CalculateTheSimilarityScore(rightList)}");
 }
 
 DayOne();
