@@ -74,11 +74,10 @@ public class ProblemDampnerLevelAnalyser : AscendingDescendingLevelAnalyser
         var isSafe = base.IsSafe(levels);
         if (!isSafe)
         {
-            foreach (var level in levels)
+            for (int i = 0; i < levels.Count; i++)
             {
                 var alteredLevels = levels.ToList();
-                alteredLevels.RemoveAt(levels.IndexOf(level));
-                //alteredLevels.Remove(level);
+                alteredLevels.RemoveAt(i);
                 if (base.IsSafe(alteredLevels))
                 {
                     return true;
